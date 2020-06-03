@@ -1,0 +1,23 @@
+{
+  "name": "youtubeclone",
+  "version": "1.0.0",
+  "description": "Cloning Youtube with Vanilla JS",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wisehero/Youtube-Clone.git"
+  },
+  "keywords": [],
+  "author": "wisehero",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wisehero/Youtube-Clone/issues"
+  },
+  "homepage": "https://github.com/wisehero/Youtube-Clone#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
