@@ -5,19 +5,17 @@ const PORT = 4000;
 
 const app = express(); // express 애플리케이션 생성
 const logger = morgan("dev");
-
-const logger = (req, res, next) => {
-  console.log(`${req.method} ${req.url}`);
-  next();
-};
-
-// http GET Method.  this is request
-const handleHome = (req, res) => {
-  return res.send("i love middlewares");
-};
-
 app.use(logger);
-app.get("/", logger, handleHome);
+
+// Global Router
+const globalRouter = express.Router();
+// Local Router
+const userRoudter = express.Router();
+const videoRouter = express.Router();
+
+app.use("/", globalRouter);
+app.use("/videos", videoRouter);
+app.use("/users", userRoudter);
 
 // this is callback
 const handleListening = () =>
