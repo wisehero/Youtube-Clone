@@ -1,5 +1,8 @@
 import express from "express"; // 서버 구축의 시작
 import morgan from "morgan";
+import globalRouter from "./routers/globalRouter";
+import videoRouter from "./routers/videoRouter";
+import userRouter from "./routers/userRouter";
 
 const PORT = 4000;
 
