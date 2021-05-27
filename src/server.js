@@ -15,21 +15,21 @@ const handleHome = (req, res) => res.send("Home");
 globalRouter.get("/", handleHome);
 
 // Local Router
-const userRoudter = express.Router();
+const userRouter = express.Router();
 
 const handleEditUser = (req, res) => res.send("Edit User");
 
-userRoudter.get("/edit", handleEditUser);
+userRouter.get("/edit", handleEditUser);
 
 const videoRouter = express.Router();
 
-videoRouter.get("/watch", handleWatchVideo);
-
 const handleWatchVideo = (req, res) => res.send("Watch Video");
+
+videoRouter.get("/watch", handleWatchVideo);
 
 app.use("/", globalRouter);
 app.use("/videos", videoRouter);
-app.use("/users", userRoudter);
+app.use("/users", userRouter);
 
 // this is callback
 const handleListening = () =>
