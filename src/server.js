@@ -1,4 +1,4 @@
-import express from "express"; // 서버 구축의 시작
+import express from "express"; // 서버 구축 시작
 import morgan from "morgan";
 import globalRouter from "./routers/globalRouter";
 import videoRouter from "./routers/videoRouter";
