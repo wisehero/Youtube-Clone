@@ -2,7 +2,7 @@ import "./db";
 import "./models/Video";
 import app from "./server";
 
-const PORT = 4000;
+const PORT = 5000;
 
 // this is callback
 const handleListening = () =>

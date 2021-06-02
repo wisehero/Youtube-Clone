@@ -4,8 +4,6 @@ mixin video(video)
         h4
             //- 속성값에는 #{} 사용 불가
             a(href=`/videos/${video.id}`)=video.title 
-        ul
-            li #{video.rating}/5
-            li #{video.comments} comments.
-            li Posted #{video.createAt}
-            li #{video.views} views.
+        p=video.description
+        small=video.createdAt
+        hr 
