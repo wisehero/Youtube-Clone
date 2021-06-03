@@ -1,3 +1,5 @@
+import User from "../models/User";
+
 export const getJoin = (req, res) => res.render("join", { pageTitle: "Join" });
 export const postJoin = async (req, res) => {
   const { name, username, email, password, location } = req.body;
