@@ -25,7 +25,11 @@ app.use(
   })
 );
 
+// View에서 데이터를 사용하게 해줄 수 있는 미들웨어
 app.use(localsMiddleware);
+// multer가 저장하는 폴더를 알려주는 코드
+app.use("/uploads", express.static("uploads"));
+// 라우터 등록
 app.use("/", rootRouter);
 app.use("/videos", videoRouter);
 app.use("/users", userRouter);
