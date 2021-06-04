@@ -151,9 +151,18 @@ export const postEdit = async (req, res) => {
     },
     body: { name, email, username, location },
   } = req;
-  await User.findByIdAndUpdate(id, { name, email, username, location });
+  const updatedUser = await User.findByIdAndUpdate(
+    _id,
+    {
+      name,
+      email,
+      username,
+      location,
+    },
+    { new: true }
+  );
+
   return res.return("edit-profile");
 };
 
-export const remove = (req, res) => res.send("Remove User");
 export const see = (req, res) => res.send("See User");
