@@ -4,6 +4,7 @@ const path = require("path");
 module.exports = {
   entry: "./src/client/js/main.js", // 우리가 변경하고자 하는 파일
   mode: "development",
+  watch: true,
   plugins: [
     new MiniCssExtractPlugin({
       filename: "css/styles.css",
@@ -13,6 +14,7 @@ module.exports = {
   output: {
     filename: "js/main.js",
     path: path.resolve(__dirname, "assets"),
+    clean: true, // clean the folder everytime restart
   },
   module: {
     rules: [

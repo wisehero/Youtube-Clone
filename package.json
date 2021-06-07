@@ -8,8 +8,8 @@
     "url": "git+https://github.com/wisehero/Youtube-Clone.git"
   },
   "scripts": {
-    "dev": "nodemon --exec babel-node src/init.js",
-    "assets": "webpack --config webpack.config.js"
+    "dev:server": "nodemon",
+    "dev:assets": "webpack"
   },
   "keywords": [
     "no"
