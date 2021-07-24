@@ -4,11 +4,16 @@ const startBtn = document.getElementById("startBtn");
 const video = document.getElementById("preview");
 
 let stream;
+let recorder;
+
+const handleDownload = () => {};
 
 const handleStop = () => {
   startBtn.innerText = "Start Recording";
-  startBtn.removeEventListener("click", handleStop);
-  startBtn.addEventListener("click", handleStart);
+  startBtn.removeEventListener("click", handleStop); // Stop Recoding을 누르면 handleStop 이벤트가 사라지고
+  startBtn.addEventListener("click", handleStart); //handleStart가 실행된다.
+  startBtn.addEventListener("click", handleDownload);
+  recorder.stop();
 };
 
 const handleStart = async () => {
@@ -17,20 +22,20 @@ const handleStart = async () => {
   startBtn.addEventListener("click", handleStop);
   const recorder = new MediaRecorder(stream);
   recorder.ondataavailable = (e) => {
-    console.log("recording done");
-    console.log(e);
-    console.log(e.data);
+    recorder = new MediaRecorder(stream);
+    recorder.ondataavailable = (event) => {
+      const videoFile = URL.createObjectURL(event.data);
+      video.srcObject = null;
+      video.src = videoFile;
+      video.loop = true;
+      video.play();
+    };
   };
-  console.log(recorder);
-  recorder.start();
-  console.log(recorder);
-  setTimeout(() => {
-    recorder.stop();
-  }, 10000);
 };
 
 const init = async () => {
   const stream = await navigator.mediaDevices.getUserMedia({
+    // 이 스트림은 미리보기를 제공한다.
     audio: false,
     video: true,
   });
