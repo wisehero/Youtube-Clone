@@ -1,6 +1,7 @@
 import express from "express"; // 서버 구축 시작
 import morgan from "morgan";
 import session from "express-session";
+import flash from "express-flash";
 import MongoStore from "connect-mongo";
 import rootRouter from "./routers/rootRouter";
 import videoRouter from "./routers/videoRouter";
@@ -26,6 +27,7 @@ app.use(
   })
 );
 
+app.use(flash());
 // View에서 데이터를 사용하게 해줄 수 있는 미들웨어
 app.use(localsMiddleware);
 // multer가 저장하는 폴더를 알려주는 코드
